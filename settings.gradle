@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Test Project"
+rootProject.name = "check"
 include ':app'
 include ':testlib'
