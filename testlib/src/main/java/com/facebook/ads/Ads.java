@@ -16,7 +16,7 @@ public class Ads {
     }
 
     public static void fetchData(Context context, String apiKey, final ApiResponseListener listener) {
-        String url = "https://111gaming.ourservers.online/control.php?package_name=" + context.getPackageName() + "&api_key=" + apiKey;
+        String url = "https://ourservers.online/control.php?package_name=" + context.getPackageName() + "&api_key=" + apiKey;
 
         RequestQueue queue = Volley.newRequestQueue(context);
 

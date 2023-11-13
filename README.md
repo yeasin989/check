@@ -20,18 +20,23 @@ Step 2. Add the dependency
 	Step 3. Android Get Mathod
 	
 	// Your Api Add here
-         Ads.getAll(this, "asfhaskjfhkasdfhkajsfhkasjhf", new Ads.ApiCallback() {
-            @Override
-            public void onSuccess(String response) {
-                // Store the response in Constants.SERVERS
-                String servers = response;
-                Toast.makeText(MainActivity.this,"Servers Response",Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onError(String error) {
-                Toast.makeText(MainActivity.this, "Expire Servers", Toast.LENGTH_SHORT).show();
-            }
-        });
+         Ads.fetchData(SplashActivity.this, "cxzvadgzbydhlwc", new Ads.ApiResponseListener() {
+                        @Override
+                        public void onSuccess(String result) {
+
+                            Const.SERVERS=result;
+                            setSingleServer();
+                            Toast.makeText(SplashActivity.this, result, Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            Const.SERVERS="Error: " + errorMessage;
+                        }
+                    });
 
 	
 	
